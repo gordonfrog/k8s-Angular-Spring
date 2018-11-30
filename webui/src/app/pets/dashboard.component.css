@@ -1,0 +1,40 @@
+.pet {
+    border: 5px;
+    padding: 5px;
+    width: 30%;
+}
+
+.genre {
+    font-size: 12px;
+}
+
+.createPet {
+    margin-bottom: 10px;
+}
+
+.listPets {
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.card-link {
+    outline: none;
+}
+
+.deletePet {
+    color: red;
+}
+
+.float-right {
+    margin: 2px;
+    padding: 2px;
+}
+
+.noOutline {
+    outline: none !important;
+}
+
+.pet-title {
+    margin-left: 0%;
+}

@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col">
+    <div class="float-right">
+      <button class="btn btn-success createPet" data-toggle="modal" data-target="#createPetModal">
+        create Pet
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row listPets">
+  <div *ngFor='let pet of pets' class="pet">
+    <div class="card">
+      <div class="card-body">
+        <div class="row pet-title">
+          <h4 class="card-title">{{pet.name}}</h4>
+          <div class="col">
+            <div class="float-right">
+                <a href="#" (click)="showModal(pet)" class="card-link deletePet" data-toggle="modal" data-target="#deletePetConfirmationModal">Delete</a>
+            </div>
+            <div class="float-right">
+                <a href="#" (click)="showModal(pet)" class="card-link" data-toggle="modal" data-target="#updatePetModal">Edit</a>
+              </div>
+          </div>
+        </div>
+        <p class="card-text">{{pet.species ? pet.species : 'None'}}</p>
+        <p class="genre">{{pet.breed}}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="createPetModal" class="modal fade" role="dialog" [hidden]="submitted">
+    <app-petform [newPet]="newPet" [update]="false" (petCreated)="petCreated($event)"></app-petform>
+  </div>
+
+
+
+  <div id="updatePetModal" class="modal fade" role="dialog">
+    <app-petform [newPet]="currentPet" [update]="true" (petUpdated)="petUpdated($event)"></app-petform>
+  </div>
+
+
+
+
+
+
+  <div id="deletePetConfirmationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close noOutline" data-dismiss="modal" #deletePetModalCloseBtn>&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure to delete {{currentPet.name}}</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn noOutline" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-danger" (click)="deletePet()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>

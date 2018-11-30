@@ -1,0 +1,38 @@
+<div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close noOutline" data-dismiss="modal" #addPetcloseBtn>&times;</button>
+          </div>
+      <div class="modal-body">
+            <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name"
+                       required
+                       [(ngModel)]="newPet.name" name="name"
+                       #name="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="description">Species</label>
+                <input type="text" class="form-control" id="species"
+                required
+                       [(ngModel)]="newPet.species" name="species">
+              </div>
+
+              <div class="form-group">
+                  <label for="genre">Breed</label>
+                  <input type="text" class="form-control" id="breed"
+                  required
+                         [(ngModel)]="newPet.breed" name="breed">
+              </div>
+
+              <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">{{update? 'Update' :'Submit'}}</button>
+              <button class="btn noOutline" data-dismiss="modal">Cancel</button>
+            </form>
+      </div>
+    </div>
+
+  </div>
